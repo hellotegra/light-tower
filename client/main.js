@@ -2,14 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
-
+import {Route, Router, browserHistory} from 'react-router';
 import {Players} from './../imports/api/players';
 import App from './../imports/ui/App';
+import Splash from './../imports/ui/Splash';
+import Dashboard from './../imports/ui/Dashboard';
+import Test from './../imports/ui/Test';
+
+routes = (
+  <Router history={browserHistory}>
+    <Route path="/" component={Splash} />
+    <Route path="/dashboard" component={App} />
+  </Router>
+);
 
 Meteor.startup(() => {
-  Tracker.autorun(() => {
-    let players = Players.find({}, {sort: {score: -1}}).fetch();
-    let title = 'Light Tower';
-    ReactDOM.render(<App title={title} players={players}/>, document.getElementById('app'));
+  ReactDOM.render(
+      routes, document.getElementById('app'));
   });
-});

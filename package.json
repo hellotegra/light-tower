@@ -10,10 +10,12 @@
     "bower": "^1.8.0",
     "font-awesome": "^4.7.0",
     "foundation-icons": "^1.0.1",
+    "jquery": "^2.2.4",
     "keen-dashboards": "^0.1.1",
     "meteor-node-stubs": "~0.2.4",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-router": "^2.8.1"
   },
   "engines": {
     "node": "4.8.3"

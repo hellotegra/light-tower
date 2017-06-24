@@ -11,8 +11,6 @@ export default class App extends React.Component {
       <div>
         <TitleBar title={this.props.title}/>
         <Dashboard />
-        {/* <PlayerList players={this.props.players}/> */}
-        {/* <AddPlayer/> */}
       </div>
     );
   }

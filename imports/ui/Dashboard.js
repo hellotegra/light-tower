@@ -12,7 +12,7 @@ export default class Dashboard extends React.Component{
                       <ul>
                           <li className="active"><a href="#"><i className="fa fa-home" aria-hidden="true"></i><span className="hidden-xs hidden-sm">Home</span></a></li>
                           <li><a href="#"><i className="fa fa-briefcase" aria-hidden="true"></i><span className="hidden-xs hidden-sm">Monthly Bill</span></a></li>
-                                                    <li><a href="#"><i className="fa fa-bar-chart" aria-hidden="true"></i><span className="hidden-xs hidden-sm">Usage Summary</span></a></li>
+                          <li><a href="#"><i className="fa fa-bar-chart" aria-hidden="true"></i><span className="hidden-xs hidden-sm">Usage Summary</span></a></li>
                           <li><a href="#"><i className="fa fa-line-chart" aria-hidden="true"></i><span className="hidden-xs hidden-sm">Statistics</span></a></li>
                           <li><a href="#"><i className="fa fa-leaf" aria-hidden="true"></i><span className="hidden-xs hidden-sm">Efficiency Steps</span></a></li>
                           <li><a href="#"><i className="fa fa-cog" aria-hidden="true"></i><span className="hidden-xs hidden-sm">User Settings</span></a></li>
