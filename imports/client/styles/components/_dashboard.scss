@@ -1,4 +1,6 @@
 // From Bootsnipp file - https://bootsnipp.com/snippets/featured/flat-responsive-dashboard-design
+// "navi" is the sidebar
+
 a:focus,a:hover,a{
     outline:none;
     text-decoration: none;
@@ -332,7 +334,7 @@ li,ul{
 }
 
 header {
-    background: #ffffff none repeat scroll 0 0;
+    background: #176449 none repeat scroll 0 0;
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
     display: inline-block !important;
     line-height: 23px;
@@ -349,12 +351,16 @@ header {
     text-align: center;
 }
 
+.navi {
+  background-color: #176449;
+}
+
 .navi a {
-    border-bottom: 1px solid #0d172e;
-    border-top: 1px solid #0d172e;
+    border-bottom: 1px solid #0f4230;
+    border-top: 1px solid #0f4230;
     color: #ffffff;
     display: block;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     padding: 28px 20px;
     text-decoration: none;
@@ -366,7 +372,7 @@ header {
 }
 
 .navi .active a {
-    background: #122143;
+    background: #176449;
     border-left: 5px solid #5584ff;
     padding-left: 15px;
 }

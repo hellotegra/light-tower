@@ -6,13 +6,15 @@ import {Route, Router, browserHistory} from 'react-router';
 import {Players} from './../imports/api/players';
 import App from './../imports/ui/App';
 import Splash from './../imports/ui/Splash';
-import Dashboard from './../imports/ui/Dashboard';
-import Test from './../imports/ui/Test';
+import Bill from './../imports/ui/Bill';
+import Home from './../imports/ui/Home';
+
 
 routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Splash} />
-    <Route path="/dashboard" component={App} />
+    <Route path="/dashboard" component={Home} />
+    <Route path="/dashboard/bill" component={Bill} />
   </Router>
 );
 

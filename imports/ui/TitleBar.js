@@ -3,8 +3,8 @@ import React from 'react';
 export default class TitleBar extends React.Component {
   render() {
     return (
-      <div className="title-bar">
-        <nav className="navbar navbar-default">
+      <div className="title-bar site-colors" id="site-green">
+        <nav className="navbar navbar-light">
           <div className="container-fluid">
             <div className="navbar-header">
               <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">

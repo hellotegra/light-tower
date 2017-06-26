@@ -16,8 +16,17 @@ h1 {
   font-size: 2.4rem;
 }
 .title-bar {
-  background: #e35557;
+  background: #176449;
   color: white;
+  height: 5.5rem;
+  a {
+    color: whitesmoke;
+  }
+}
+
+.title-bar a:hover {
+  color: white;
+  background: #176449;
 }
 
 .wrapper {

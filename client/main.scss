@@ -1,8 +1,15 @@
+// #site-green {
+//   background-color: #176449;
+// }
+
 @import '../imports/client/styles/components/dashboard';
 @import '../imports/client/styles/main';
 @import '../imports/client/styles/components/tables';
 @import '../imports/client/styles/components/splash';
-@import '../imports/client/styles/components/home';
+@import '../imports/client/styles/components/bill';
+@import '../imports/client/styles/components/title-bar';
+
+
 
 i.my_check {
     color: green;
