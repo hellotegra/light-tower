@@ -2,6 +2,7 @@ import React from 'react';
 import Dashboard from './Dashboard';
 import TitleBar from './TitleBar';
 import StackedBar from './StackedBar';
+import SimpleLine from './SimpleLine';
 
 export default class Home extends React.Component{
   render() {
@@ -14,6 +15,7 @@ export default class Home extends React.Component{
           </div>
           <div className="col-md-10 col-sm-11 display-table-cell v-align">
               <StackedBar />
+              <SimpleLine />
           </div>
         </div>
     </div>

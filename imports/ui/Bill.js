@@ -50,8 +50,8 @@ export default class Bill extends React.Component{
             				</tr>
             			</thead>
             			<tbody>
-                    <tr class="home-divider">
-            				  <td colspan="8"><b>USAGE <small>& MISCELLANEOUS</small></b></td>
+                    <tr className="home-divider">
+            				  <td colSpan="8"><b>USAGE <small>& MISCELLANEOUS</small></b></td>
         				    </tr>
             				<tr>
                       <td></td>
@@ -88,15 +88,15 @@ export default class Bill extends React.Component{
                       <td></td>
                       <td>$22.867.60</td>
                     </tr>
-                    <tr class="divider">
+                    <tr className="divider">
                       <td> </td>
                       <td> </td>
                       <td> </td>
                       <td> </td>
                       <td> </td>
                     </tr>
-                    <tr class="home-divider">
-            				  <td colspan="8"><b>DEMAND</b></td>
+                    <tr className="home-divider">
+            				  <td colSpan="8"><b>DEMAND</b></td>
         				    </tr>
                     <tr>
                       <td></td>
@@ -133,7 +133,7 @@ export default class Bill extends React.Component{
                       <td></td>
                       <td>$4,360.28</td>
                     </tr>
-                    <tr class="divider">
+                    <tr className="divider">
                       <td> </td>
                       <td> </td>
                       <td> </td>

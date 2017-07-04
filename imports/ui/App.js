@@ -1,15 +1,15 @@
 import React from 'react';
 
 import TitleBar from './TitleBar';
-import AddPlayer from './AddPlayer';
-import PlayerList from './PlayerList';
+import AddClient from './AddClient';
+import ClientList from './ClientList';
 import Dashboard from './Dashboard';
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
-        <TitleBar title={this.props.title}/>
+        <TitleBar />
         <Dashboard />
       </div>
     );
@@ -17,6 +17,5 @@ export default class App extends React.Component {
 };
 
 App.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  players: React.PropTypes.array.isRequired
+  clients: React.PropTypes.array.isRequired
 };

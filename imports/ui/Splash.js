@@ -1,9 +1,12 @@
 import React from 'react';
 import $ from 'jquery';
 import {Link} from 'react-router';
+// import bkgrnd from '../img/bg.jpg';
 
 export default class Splash extends React.Component{
   render() {
+    var headerStyle = {color: '#006600'};
+    var header2Style = {color: '#006600'};
       return (
         <div>
           <a id="menu-toggle" href="#" className="btn btn-dark btn-lg toggle"><i className="fa fa-bars"></i></a>
@@ -37,8 +40,8 @@ export default class Splash extends React.Component{
                           <div className="col-xs-4"></div>
                           <div className="text-vertical-center col-xs-4">
                               <p></p>
-                              <h1>Light Tower</h1>
-                              <h3>Real-Time Pricing, Real Simple</h3>
+                              <h1 style={headerStyle}>Light Tower</h1>
+                              <h3 style={header2Style}>Real-Time Pricing, Real Simple</h3>
                               <p></p>
                               <p></p>
                               <p></p>
@@ -54,8 +57,10 @@ export default class Splash extends React.Component{
                       <div className="container">
                           <div className="row">
                               <div className="col-lg-12 text-center">
-                                  <h2>Stylish Portfolio is the perfect theme for your next project!</h2>
-                                  <p className="lead">This theme features some wonderful photography courtesy of <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p>
+                                  <h2>Real-Time Pricing: the Smart Choice for Large Customers</h2>
+                                  <p className="lead">Every commodity that we buy - gasoline, coffee, a loaf of bread - we buy on the real-time market. The reason is simple: it's cheaper. Fixing a price in advance is a form of insurance, and insurance comes at a premium. </p>
+                                  <p className="lead">So why do so many big buildings buy electricity at a fixed price? The answer is simple: it's what they're used to. In the days before energy deregulation, all businesses would get their power at a fixed price from the utility. Now that deregulation has occurred, most big energy users have lost out on the opportunity to do things differently: they've simply swapped out the utility for the 3rd party supplier. </p>
+                                  <p className="lead">In this era of abundant natural gas, electricity prices are low and stable. Real-time pricing has proven to be the cheaper option. So why pay more for the same power?</p>
                               </div>
                           </div>
                           {/* <!-- /.row --> */}
@@ -197,7 +202,7 @@ export default class Splash extends React.Component{
 
                   {/* <!-- Map --> */}
                   <section id="contact" className="map">
-                      <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
+                      <iframe width="100%" height="100%" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
                       <br />
                       <small>
                           <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
