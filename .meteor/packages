@@ -24,3 +24,4 @@ dynamic-import
 fourseven:scss@=3.10.1
 twbs:bootstrap
 fortawesome:fontawesome
+accounts-base

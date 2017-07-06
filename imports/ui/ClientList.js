@@ -2,23 +2,17 @@ import React from 'react';
 import Client from './Client';
 import {Clients} from './../api/clients';
 
-const renderClients = (clientList) => {
-  if (Clients.length === 0) {
-    return <p>No Clients in Database.</p>;
-  } else
-  {
-    return clientList.map((client) => {
-      return <Client key={client._id} client={client}/>;
-    });
-  }
-}
 
 export default class ClientList extends React.Component {
-
+  renderClients() {
+    return this.props.clients.map((client) => {
+      return <Client key="client._id" client={client} />
+    });
+  }
   render() {
     return (
       <div>
-        {renderClients(Clients)}
+        {this.renderClients()}
       </div>
     );
   }
@@ -27,3 +21,4 @@ export default class ClientList extends React.Component {
 // ClientList.propTypes = {
 //   clients: React.PropTypes.array.isRequired
 // }
+// {renderClients(Clients)}

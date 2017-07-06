@@ -5,8 +5,8 @@ import {Clients} from './../imports/api/clients';
 
 Meteor.startup(() => {
   Clients.insert({
-    name: "Tecumseh Hospital",
-    peakLoad: 400
+    name: "Jimbobs Deli",
+    peakLoad: 555
   });
   console.log(Clients.find().fetch());
 });
