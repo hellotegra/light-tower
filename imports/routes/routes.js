@@ -14,6 +14,7 @@ import NotFound from '../ui/NotFound';
 import {Clients} from '../api/clients';
 import AddClient from '../ui/AddClient';
 import ClientList from '../ui/ClientList';
+import Client from '../ui/Client';
 
 // Browser Redirects for authentication
 const unauthenticatedPages = ['/'];
@@ -34,13 +35,15 @@ export const onAuthChange = (isAuthenticated) => {
   }
 };
 
+// Left to do: create public and private routes, as per the Short-Lnk app
+// onEnter={onEnterPrivatePage}, etc
 export const routes = (
   <Router history={browserHistory}>
     <Route path="/" component={Splash} />
     <Route path="/dashboard" component={Home} />
     <Route path="/dashboard/bill" component={Bill} />
     <Route path="admin/addclient" component={AddClient} />
-    <Route path="admin/clientlist" component={ClientList} />
+    <Route path="admin/clientlist" component={Client} />
     <Route path="admin/bill" component={BillForm} />
     <Route path="*" component={NotFound} />
   </Router>
