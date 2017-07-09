@@ -1,30 +1,33 @@
 import React from 'react';
-import ClientList from './ClientList';
+import {Meteor} from 'meteor/meteor';
 import {Clients} from '../api/clients';
+import AdminTitleBar from './AdminTitleBar';
+import ClientList from './ClientList';
 
 export default class Client extends React.Component {
-  // onLogout() {
-  //   Accounts.logout();
-  // }
+  onLogout() {
+    Accounts.logout();
+  }
   onSubmit(e) {
     const clientName = this.refs.clientName.value.trim();
+    const peakLoad = this.refs.peakLoad.value.trim();
     e.preventDefault();
     if (clientName) {
-      Clients.insert({ clientName });
+      Meteor.call('clients.insert', clientName, peakLoad);
       this.refs.clientName.value = "";
+      this.refs.peakLoad.value = "";
     };
   }
   render() {
     return (
       <div>
-        <div className="jumbotron">
-          <h1>Admin Section</h1>
-        </div>
+        <AdminTitleBar  />
         {/* <button onClick={this.onLogout.bind(this)}>Logout</button> */}
         <ClientList />
         <p>Add Client</p>
         <form onSubmit={this.onSubmit.bind(this)}>
           <input type="text" ref="clientName" placeholder="Name of client" />
+          <input type="number" ref="peakLoad" placeholder="0" />
           <button>Insert New Client</button>
         </form>
       </div>

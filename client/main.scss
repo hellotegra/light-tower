@@ -9,7 +9,9 @@
 @import '../imports/client/styles/components/bill';
 @import '../imports/client/styles/components/title-bar';
 
-
+.offset {
+  margin-left: 100px;
+}
 
 i.my_check {
     color: green;

@@ -9,6 +9,8 @@ import Bill from '../ui/Bill';
 import Home from '../ui/Home';
 import BillForm from '../ui/BillForm';
 import NotFound from '../ui/NotFound';
+import Signup from '../ui/Signup';
+import Login from '../ui/Login';
 
 // Database imports
 import {Clients} from '../api/clients';
@@ -17,11 +19,16 @@ import ClientList from '../ui/ClientList';
 import Client from '../ui/Client';
 
 // Browser Redirects for authentication
-const unauthenticatedPages = ['/'];
+const unauthenticatedPages = ['/admin', '/admin/signup'];
 const authenticatedPages = ['/admin/addclient'];
+const onEnterPublicPage = () => {
+  if (Meteor.userId()) {
+    browserHistory.replace('/admin');
+  }
+};
 const onEnterPrivatePage = () => {
   if (!Meteor.userId()) {
-    browserHistory.replace('/');
+    browserHistory.replace('/admin/signup');
   }
 };
 export const onAuthChange = (isAuthenticated) => {
@@ -42,8 +49,10 @@ export const routes = (
     <Route path="/" component={Splash} />
     <Route path="/dashboard" component={Home} />
     <Route path="/dashboard/bill" component={Bill} />
-    <Route path="admin/addclient" component={AddClient} />
-    <Route path="admin/clientlist" component={Client} />
+    <Route path="/admin/login" component={Login} onEnter={onEnterPublicPage} />
+    <Route path="/admin/signup" component={Signup} onEnter={onEnterPublicPage} />
+    <Route path="admin/addclient" component={AddClient} onEnter={onEnterPrivatePage}  />
+    <Route path="admin" component={Client} onEnter={onEnterPrivatePage} />
     <Route path="admin/bill" component={BillForm} />
     <Route path="*" component={NotFound} />
   </Router>

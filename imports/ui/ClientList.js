@@ -1,8 +1,10 @@
 import React from 'react';
-import {Clients} from './../api/clients';
+import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
+import {Link} from 'react-router';
 
-// We've got to fix the table, otherwise we are finally mapping and passing shit through
+import {Clients} from './../api/clients';
+// We've got to fix the table; otherwise, we are finally mapping and passing shit through
 
 export default class ClientList extends React.Component {
   constructor(props) {
@@ -15,6 +17,7 @@ export default class ClientList extends React.Component {
     console.log('hi clientList');
     // How are you able to make a "this.linksTracker"? I'm simply unsure, July 7th
     this.clientTracker = Tracker.autorun(() => {
+      Meteor.subscribe('clientsPub');
       const clients = Clients.find().fetch();
       this.setState ({ clients });
     });
@@ -26,27 +29,38 @@ export default class ClientList extends React.Component {
   }
   renderClientListItems() {
     return this.state.clients.map((client) => {
-      return <p key={client._id}>{client.clientName}</p>
+      return (
+        <tr key={client._id}>
+          <td>#</td>
+          <td>{client.clientName}</td>
+          <td>{client.peakLoad}</td>
+          <td><Link to="/">View</Link></td>
+          <td><Link to="/">Edit</Link></td>
+        </tr>
+        );
     });
   }
   render() {
     return (
       <div>
         <h3>Client List</h3>
-        <table className="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <td>Client #</td>
-            <td>Name</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>{this.renderClientListItems()}</td>
-          </tr>
-        </tbody>
-        </table>
+        <div className="container">
+          <table className="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td><strong>Client #</strong></td>
+              <td><strong>Name</strong></td>
+              <td><strong>Peak Load</strong></td>
+              <td></td>
+              <td></td>
+
+            </tr>
+          </thead>
+          <tbody>
+              {this.renderClientListItems()}
+          </tbody>
+          </table>
+        </div>
       </div>
     );
   }
