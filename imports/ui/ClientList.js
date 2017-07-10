@@ -1,4 +1,5 @@
 import React from 'react';
+import {createContainer} from 'meteor/react-meteor-data';
 import {Meteor} from 'meteor/meteor';
 import {Tracker} from 'meteor/tracker';
 import {Link} from 'react-router';
@@ -29,13 +30,14 @@ export default class ClientList extends React.Component {
   }
   renderClientListItems() {
     return this.state.clients.map((client) => {
+      const url = "/admin/" + client._id;
+      // Backtick version: const url =`/admin${client._id}`;
       return (
         <tr key={client._id}>
-          <td>#</td>
+          <td>{client.createdAt}</td>
           <td>{client.clientName}</td>
           <td>{client.peakLoad}</td>
-          <td><Link to="/">View</Link></td>
-          <td><Link to="/">Edit</Link></td>
+          <td><Link to={url}><small>VIEW // EDIT</small></Link></td>
         </tr>
         );
     });
@@ -52,8 +54,6 @@ export default class ClientList extends React.Component {
               <td><strong>Name</strong></td>
               <td><strong>Peak Load</strong></td>
               <td></td>
-              <td></td>
-
             </tr>
           </thead>
           <tbody>

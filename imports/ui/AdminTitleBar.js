@@ -22,7 +22,7 @@ export default class AdminTitleBar extends React.Component {
   }
   onLogout() {
     Accounts.logout();
-    browserHistory.replace('/admin/login');
+    browserHistory.push('/admin/login');
   }
   render() {
     return (
@@ -62,7 +62,7 @@ export default class AdminTitleBar extends React.Component {
                 <button type="submit" className="btn btn-default">Submit</button>
               </form>
               <ul className="nav navbar-nav navbar-right">
-                <li><a onClick={this.onLogout}>Logout</a></li>
+                <li><button className="btn navbar-btn" onClick={this.onLogout}>Logout</button></li>
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle"
                     data-toggle="dropdown" role="button">
@@ -74,7 +74,7 @@ export default class AdminTitleBar extends React.Component {
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li role="separator" className="divider"></li>
-                    <li><a onClick={this.onLogout}>Logout</a></li>
+                    <li><button onClick={this.onLogout}>Logout</button></li>
                   </ul>
                 </li>
               </ul>

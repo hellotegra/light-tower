@@ -12,16 +12,18 @@ Meteor.publish('clientsPub', function() {
 }
 
 // Meteor methods: 'resource.action'
-
 Meteor.methods({
   'clients.insert'(clientName, peakLoad) {
     if(!this.userId) {
       throw new Meteor.Error('not-authorized')
     }
     Clients.insert({
+      createdAt: new Date(),
       clientName,
       peakLoad,
-      userId: this.userId
+      userId: this.userId,
+      owner,
+      revenue
     });
   }
 })
