@@ -22,10 +22,6 @@ export default class Home extends React.Component{
                 <h6 style={offsetStyle2}>ALL FIGURES IN CENTS PER KWH</h6>
                 <SimpleAreaChart />
             </div>
-            <div className="col-md-10 col-sm-11 display-table-cell v-align">
-                <StackedBar />
-                <SimpleLine />
-            </div>
           </div>
         </div>
       );

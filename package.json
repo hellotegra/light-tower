@@ -8,6 +8,7 @@
     "babel-runtime": "^6.20.0",
     "bootstrap": "^3.3.7",
     "bower": "^1.8.0",
+    "clipboard": "^1.5.16",
     "font-awesome": "^4.7.0",
     "jquery": "^2.2.4",
     "keen-dashboards": "^0.1.1",

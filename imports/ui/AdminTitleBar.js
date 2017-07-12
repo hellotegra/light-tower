@@ -1,5 +1,5 @@
 import React from 'react';
-import {browserHistory} from 'react-router';
+import {browserHistory, Link} from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
 
 export default class AdminTitleBar extends React.Component {
@@ -17,9 +17,10 @@ export default class AdminTitleBar extends React.Component {
     if (!Meteor.userId()) {
       this.setState({user: 'Not Logged In'});
     } else {
-      this.setState({user: Meteor.userId()});
+      this.setState({user: Meteor.user().emails[0].address});
     }
   }
+  // This no longer has purpose; I've moved all of that to an inline function
   onLogout() {
     Accounts.logout();
     browserHistory.push('/admin/login');
@@ -41,7 +42,7 @@ export default class AdminTitleBar extends React.Component {
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul className="nav navbar-nav">
                 <li><a href="#">Link <span className="sr-only">(current)</span></a></li>
-                <li><a href="#">Link</a></li>
+                <li><Link to="/admin/login">Login</Link></li>
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
                   <ul className="dropdown-menu">
@@ -62,7 +63,7 @@ export default class AdminTitleBar extends React.Component {
                 <button type="submit" className="btn btn-default">Submit</button>
               </form>
               <ul className="nav navbar-nav navbar-right">
-                <li><button className="btn navbar-btn" onClick={this.onLogout}>Logout</button></li>
+                <li><button className="btn navbar-btn" onClick={() => Accounts.logout()}>Logout</button></li>
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle"
                     data-toggle="dropdown" role="button">
@@ -74,7 +75,7 @@ export default class AdminTitleBar extends React.Component {
                     <li><a href="#">Another action</a></li>
                     <li><a href="#">Something else here</a></li>
                     <li role="separator" className="divider"></li>
-                    <li><button onClick={this.onLogout}>Logout</button></li>
+                    <li><a onClick={() => Accounts.logout()}>Logout</a></li>
                   </ul>
                 </li>
               </ul>

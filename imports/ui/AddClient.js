@@ -1,32 +1,27 @@
 import React from 'react';
-import {Tracker} from 'meteor/tracker';
-import {Clients} from './../api/clients';
-import Client from './Client';
-import ClientList from './ClientList';
+import { Meteor } from 'meteor/meteor';
 
 export default class AddClient extends React.Component {
-  handleSubmit(e) {
-    let clientName = e.target.clientName.value;
+  onSubmit(e) {
+    const clientName = this.refs.clientName.value.trim();
+    const peakLoad = this.refs.peakLoad.value.trim();
     e.preventDefault();
     if (clientName) {
-      e.target.clientName.value = '';
-      Clients.insert({
-        name: clientName,
-        peakLoad: 650
-      });
-    }
+      Meteor.call('clients.insert', clientName, peakLoad);
+      this.refs.clientName.value = "";
+      this.refs.peakLoad.value = "";
+    };
   }
   render() {
     return (
       <div>
-        <h1>Client List</h1>
-        <ClientList clients={clients} />
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" name="clientName" placeholder="Client name"/>
-          <input type="number" name="peakLoad" placeholder="100"/>
-          <button>Add Client</button>
+        <p>Add Client</p>
+        <form onSubmit={this.onSubmit.bind(this)}>
+          <input type="text" ref="clientName" placeholder="Name of client" />
+          <input type="number" ref="peakLoad" placeholder="0" />
+          <button>Insert New Client</button>
         </form>
       </div>
     );
   }
-};
+}

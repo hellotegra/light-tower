@@ -10,10 +10,12 @@ import ClientEditor from './ClientEditor';
   render() {
     console.log(this.props.client);
     console.log(this.props.params.clientName);
+    let _id = 0;
     return (
       <div>
         <AdminTitleBar  />
-        <ClientEditor client={this.props.client} />
+        {/* <ClientEditor client={this.props.client} /> */}
+
 
 {/* This is the part where you need to subscribe to the specific Client */}
         <div>
