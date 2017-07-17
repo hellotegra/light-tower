@@ -9,6 +9,9 @@ if (Meteor.isServer) {
   Meteor.publish('clientsPub', function() {
     return Clients.find({userId: this.userId});
   });
+  Meteor.publish('singleClient', function(_id) {
+    return Clients.find({_id});
+  });
 }
 
 // Meteor methods: 'resource.action'
@@ -18,16 +21,33 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
     Clients.insert({
-      createdAt: new Date(),
+      // createdAt: new Date(),
       clientName,
       peakLoad,
       userId: this.userId,
       rtpUser: false
     });
-  }
-  // 'clients.rtpUpdate'(id, rtpUser) {
-  //   return Clients.update(id,
-  //     { $set: {rtpUser: !rtpUser}
-  //   });
-  // }
+  },
+ 'clients.rtpUpdate'(_id, rtpUser) {
+   if(!this.userId) {
+     throw new Meteor.Error('not-authorized');
+   }
+   Clients.update({
+       _id,
+       userId: this.userId
+     }, {
+       $set: {rtpUser}
+     });
+   },
+   'clients.update'(_id, peakLoad) {
+     if(!this.userId) {
+       throw new Meteor.Error('not-authorized');
+     }
+     Clients.update({
+         _id,
+         userId: this.userId
+       }, {
+         $set: {peakLoad}
+       });
+     }
 });

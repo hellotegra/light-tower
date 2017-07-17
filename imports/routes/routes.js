@@ -12,6 +12,7 @@ import NotFound from '../ui/NotFound';
 import Signup from '../ui/Signup';
 import Login from '../ui/Login';
 import ClientHome from '../ui/ClientHome';
+import ClientEditor from '../ui/ClientEditor';
 
 // Database imports
 import {Clients} from '../api/clients';
@@ -51,7 +52,8 @@ export const routes = (
     <Route path="/admin/login" component={Login} onEnter={onEnterPublicPage} />
     <Route path="/admin/signup" component={Signup} onEnter={onEnterPublicPage} />
     <Route path="admin/addclient" component={AddClient} onEnter={onEnterPrivatePage}  />
-    <Route path="admin/:clientName" component={ClientHome} onEnter={onEnterPrivatePage}  />
+    <Route path="admin/:clientId" component={ClientHome} onEnter={onEnterPrivatePage}  />
+    <Route path="admin/:clientId/edit" component={ClientEditor} onEnter={onEnterPrivatePage}  />
     <Route path="admin" component={Client} onEnter={onEnterPrivatePage} />
     <Route path="admin/bill" component={BillForm} />
     <Route path="*" component={NotFound} />

@@ -3,9 +3,9 @@ import { Meteor } from 'meteor/meteor';
 
 export default class AddClient extends React.Component {
   onSubmit(e) {
+    e.preventDefault();
     const clientName = this.refs.clientName.value.trim();
     const peakLoad = this.refs.peakLoad.value.trim();
-    e.preventDefault();
     if (clientName) {
       Meteor.call('clients.insert', clientName, peakLoad);
       this.refs.clientName.value = "";

@@ -25,7 +25,7 @@ export default class ClientListItem extends React.Component {
     this.clipboard.destroy();
   }
   render() {
-    console.log("Client: " + this.props.clientName + "; Peak Load: " + this.props.peakLoad + ". Created at: " + this.props.createdAt );
+    // console.log("Client: " + this.props.clientName + "; Peak Load: " + this.props.peakLoad + ". Created at: " + this.props.createdAt );
     return (
      <tr>
        <td>{this.props.clientName}</td>
@@ -34,9 +34,10 @@ export default class ClientListItem extends React.Component {
        <td><Link to={this.props.url}><small>VIEW // EDIT</small></Link></td>
        <td>
          {/* Next up - input for rtpUser */}
-         <button>
-            {/* {onClick={() => {}} */}
-           {this.props.rtpUser ? 'RTP' : 'FIXED'}
+         <button onClick={() => {
+           Meteor.call('clients.rtpUpdate', this.props._id, !this.props.rtpUser);
+         }}>
+           {this.props.rtpUser ? 'RTP' : 'Fixed Price'}
          </button>
        </td>
        <td>
@@ -44,9 +45,6 @@ export default class ClientListItem extends React.Component {
            {this.state.justCopied ? 'Copied' : 'Copy'}
          </button>
        </td>
-       {/* <td><input type="checkbox" onClick={this.onRtpClick} value={rtpUser} /></td> */}
-       {/* <td><Link to={this.props.url}><small>VIEW // EDIT</small></Link></td> */}
-
      </tr>
     );
   }
