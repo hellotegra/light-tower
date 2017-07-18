@@ -24,7 +24,7 @@ const data = [
         <div>
           <div className="row">
             <div className="col-xs-12">
-             <AreaChart width={360} height={200} data={data} >
+             <AreaChart width={299} height={200} data={data} >
                <XAxis dataKey="name"/>
                <YAxis/>
                <CartesianGrid />

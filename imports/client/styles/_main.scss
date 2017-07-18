@@ -9,7 +9,7 @@ html {
 
 body {
   color: #555555;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 h1 {
   font-weight: 300;
@@ -35,6 +35,11 @@ h1 {
   padding: 1.3rem;
 }
 
+.centered-graph {
+  text-align: center;
+}
+
+// #5FD7AE
 
 @import './components/title-bar';
 @import './components/wrapper';

@@ -21,19 +21,21 @@ const data = [
         <div>
           <div className="row">
             <div className="col-xs-12">
-              <BarChart width={600} height={300} data={data}
-                          margin={{top: 20, right: 30, left: 20, bottom: 5}}>
-                     <XAxis dataKey="name"/>
-                     <YAxis/>
-                     <CartesianGrid strokeDasharray="3 3"/>
-                     <Tooltip/>
-                     <Legend />
-                     <Bar dataKey="kWh" stackId="a" fill="aquamarine" />
-                     <Bar dataKey="Demand" stackId="a" fill="steelblue" />
-              </BarChart>
+              <div className="centered-graph">
+                <BarChart width={300} height={200} data={data}
+                            margin={{top: 0, right: 0, left: 0, bottom: 0}}>
+                       <XAxis dataKey="name"/>
+                       <YAxis/>
+                       <CartesianGrid />
+                       <Tooltip/>
+                       <Legend />
+                       <Bar dataKey="kWh" stackId="a" fill="#5FD7AE" />
+                       <Bar dataKey="Demand" stackId="a" fill="steelblue" />
+                </BarChart>
             </div>
           </div>
         </div>
+      </div>
     );
   }
 };

@@ -31,10 +31,14 @@ export default class ClientListItem extends React.Component {
        <td>{this.props.clientName}</td>
        <td>{this.props.peakLoad}</td>
        <td>{this.props.rtpUser.toString()}</td>
-       <td><Link to={this.props.url}><small>VIEW // EDIT</small></Link></td>
+       <td>
+         <Link to={this.props.url}><small>VIEW </small></Link>
+          ||
+         <Link to={this.props.url}><small> EDIT</small></Link>
+     </td>
        <td>
          {/* Next up - input for rtpUser */}
-         <button onClick={() => {
+         <button className="btn btn-default" onClick={() => {
            Meteor.call('clients.rtpUpdate', this.props._id, !this.props.rtpUser);
          }}>
            {this.props.rtpUser ? 'RTP' : 'Fixed Price'}
