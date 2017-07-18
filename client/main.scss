@@ -9,6 +9,14 @@
 @import '../imports/client/styles/components/bill';
 @import '../imports/client/styles/components/title-bar';
 
+body {
+  background-color: white; 
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  font-family: "Lato", sans-serif;
+}
+
 .offset {
   margin-left: 100px;
 }

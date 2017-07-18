@@ -3,6 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import {Clients} from '../api/clients';
 import {createContainer} from 'meteor/react-meteor-data';
 import AdminTitleBar from './AdminTitleBar';
+import {browserHistory} from 'react-router';
 // import ClientEditor from './ClientEditor';
 
  class ClientHome extends React.Component {
@@ -28,6 +29,7 @@ import AdminTitleBar from './AdminTitleBar';
      e.preventDefault();
      const peakLoad = this.refs.peakLoad.value.trim();
      Meteor.call('clients.update', this.props.params.clientId, peakLoad);
+     browserHistory.push('/admin');
    }
   render() {
     console.log("on entering ClientHome: "+ this.props.params);
