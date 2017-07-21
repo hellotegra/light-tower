@@ -4,6 +4,8 @@ import TitleBar from './TitleBar';
 import SimplePie from './SimplePie';
 import StackedBar from './StackedBar';
 import SimpleAreaChart from './SimpleAreaChart';
+import DashboardPills from './DashboardPills';
+import {Link} from 'react-router';
 
 var offsetStyle = {marginLeft: '80px'};
 var offsetStyle2 = {marginLeft: '92px', color: 'grey'};
@@ -21,8 +23,11 @@ export default class Home extends React.Component{
             <div className="col-md-10 col-sm-11">
               <div className="row">
                 <div className="page-header">
-                  <h1>Loyola High School <small>Willamette, IL</small></h1>
+                  <h1>Loyola High School <small>Wilmette, IL</small></h1>
                 </div>
+              </div>
+              <div className="row">
+                <DashboardPills />
               </div>
               <div className="row">
                 <div className="col-md-4 col-sm-6 col-xs-12 thumbnail">
@@ -64,14 +69,14 @@ export default class Home extends React.Component{
                     <div className="panel-heading">
                       <h6>ELECTRICITY CONSUMPTION</h6>
                       <h1>
-                        <small><span className="glyphicon glyphicon-chevron-up"></span></small>
+                        <small><span className="glyphicon glyphicon-chevron-down"></span></small>
                         3.1%
                     </h1>
                     <span>last month vs. June 2016</span>
                     </div>
                     <div id="dashboard-panel-body" className="panel body">
-                      <p><i>June 2016: 174,660 kWh</i></p>
-                      <p><i>June 2015: 180,209 kWh</i></p>
+                      <p><i>June 2017: 174,660 kWh</i></p>
+                      <p><i>June 2016: 180,209 kWh</i></p>
                       <p><small>4.6% more efficient adjusted for weather</small></p>
                     </div>
                   </div>
@@ -81,14 +86,14 @@ export default class Home extends React.Component{
                     <div className="panel-heading">
                       <h6>REAL-TIME PRICE</h6>
                       <h1>
-                        <small><span className="glyphicon glyphicon-chevron-down"></span></small>
+                        <small><span className="glyphicon glyphicon-chevron-up"></span></small>
                         0.1%
                     </h1>
                     <span>YTD vs. 2016td</span>
                     </div>
                     <div id="dashboard-panel-body" className="panel body">
-                      <p><i>First six months: 3.71 cents</i></p>
-                      <p><i>Six months 2015: 3.74 cents</i></p>
+                      <p><i>First six months: 3.74 cents</i></p>
+                      <p><i>Six months 2016: 3.71 cents</i></p>
                       <p><small>Approx. 8-12% lower than fixed price (4.8-5.0 cents)</small></p>
                     </div>
                   </div>

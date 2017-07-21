@@ -12,14 +12,3 @@ Accounts.validateNewUser((user) =>{
     }).validate({ email })
     console.log('this is the user', user);
 });
-
-// const petSchema = new SimpleSchema({
-//   name: {
-//     type: String,
-//     min: 1,
-//     max: 200
-//   }
-// });
-// petSchema.validate({
-//   name: 'Jimmy'
-// });

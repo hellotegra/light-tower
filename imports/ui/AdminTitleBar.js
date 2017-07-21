@@ -46,13 +46,13 @@ export default class AdminTitleBar extends React.Component {
                 <li className="dropdown">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" className="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li role="separator" className="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
+                    <li><Link to="/dashboard"><i className="fa fa-home" aria-hidden="true"></i><span className="hidden-xs hidden-sm">  Home</span></Link></li>
+                    <li><Link to="/dashboard/bill"><i className="fa fa-book" aria-hidden="true"></i><span className="hidden-xs hidden-sm">  Monthly Bill</span></Link></li>
+                    <li><Link to="/dashboard/usage"><i className="fa fa-building-o" aria-hidden="true"></i><span className="hidden-xs hidden-sm">  Usage Summary</span></Link></li>
+                    <li><Link to="/dashboard/statistics"><i className="fa fa-line-chart" aria-hidden="true"></i><span className="hidden-xs hidden-sm">  Statistics</span></Link></li>
+                    <li><Link to="/dashboard/efficiency"><i className="fa fa-map-signs" aria-hidden="true"></i><span className="hidden-xs hidden-sm">  Efficiency Steps</span></Link></li>
+                    <li><Link to="/dashboard/carbonstats"><i className="fa fa-leaf" aria-hidden="true"></i><span className="hidden-xs hidden-sm">  Carbon Stats</span></Link></li>
+
                   </ul>
                 </li>
               </ul>
