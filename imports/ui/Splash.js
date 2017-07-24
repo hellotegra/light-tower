@@ -40,6 +40,7 @@ export default class Splash extends React.Component{
                           <div className="col-xs-4"></div>
                           <div className="text-vertical-center col-xs-4">
                               <p></p>
+                              <img src="/logo.png" alt="LTP" />
                               <h1 style={headerStyle}>Light Tower</h1>
                               <h3 style={header2Style}>Real-Time Pricing, Real Simple</h3>
                               <p></p>

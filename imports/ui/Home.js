@@ -5,6 +5,7 @@ import SimplePie from './SimplePie';
 import StackedBar from './StackedBar';
 import SimpleAreaChart from './SimpleAreaChart';
 import DashboardPills from './DashboardPills';
+import AddInvoice from './AddInvoice';
 import {Link} from 'react-router';
 
 var offsetStyle = {marginLeft: '80px'};
@@ -102,6 +103,7 @@ export default class Home extends React.Component{
                 </div>
             </div>
           </div>
+          <AddInvoice />
         </div>
       );
   }

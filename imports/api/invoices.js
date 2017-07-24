@@ -1,6 +1,8 @@
 import {Mongo} from 'meteor/mongo';
-import mongoose, {Schema} from 'mongoose';
+import {Meteor} from 'meteor/meteor';
 
-export default const InvoiceSchema = new Schema({
-  title: String
-});
+export const Invoices = new Mongo.Collection('invoices');
+
+Meteor.methods({
+  
+})

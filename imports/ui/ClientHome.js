@@ -3,7 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import {Clients} from '../api/clients';
 import {createContainer} from 'meteor/react-meteor-data';
 import AdminTitleBar from './AdminTitleBar';
-import {browserHistory} from 'react-router';
+import {browserHistory, Link} from 'react-router';
 // import ClientEditor from './ClientEditor';
 
  class ClientHome extends React.Component {
@@ -35,11 +35,12 @@ import {browserHistory} from 'react-router';
     let utility = 'ComEd';
     let acctOwner = 'Kyle Barrough';
     let address1 = '1922 Whitehall Rd';
-    let city = 'Wlmette';
-    // let state = 'IL';
+    let address2 = '';
+    let city = 'Wilmette';
+    let USstate = 'IL';
     let zip = '60091';
-
     const client = this.props.client;
+    const addInvoiceRoute = '/admin/' + this.props.params.clientId + '/addInvoice';
     // let peakLoad = this.props.client.peakLoad;
     return (
       <div>
@@ -47,9 +48,10 @@ import {browserHistory} from 'react-router';
         <div className="row">
           <div className="col-xs-3">
             <h3>{this.props.client.clientName}</h3>
-            <p>Kyle Barrough</p>
-            <p>1922 Whitehall Rd</p>
-            <p>Wilmette IL 60091</p>
+            <p>{acctOwner}</p>
+            <p>{address1}</p>
+            {address2 ? <p>{address2}</p> : null}
+            <p>{city}, {USstate} {zip}</p>
           </div>
           <div className="col-xs-6">
             <ul className="nav nav-tabs">
@@ -171,6 +173,12 @@ import {browserHistory} from 'react-router';
                />
               <button>Update Client's Peak Load</button>
             </form>
+            <div className="row">
+              <div className="container">
+                <p />
+                <Link to={addInvoiceRoute}>Add Invoice</Link>
+              </div>
+            </div>
           </div>
 
       </div>
