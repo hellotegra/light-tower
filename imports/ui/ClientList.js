@@ -35,6 +35,7 @@ class ClientList extends React.Component {
                <tr>
                  <td><strong>Name</strong></td>
                  <td><strong>Peak Load</strong></td>
+                 <td><strong>Account Owner</strong></td>
                  <td><strong>RTP User</strong></td>
                  <td></td>
                  <td><strong>Supply Contract</strong></td>

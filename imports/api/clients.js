@@ -28,6 +28,7 @@ Meteor.methods({
       createdAt: moment.valueOf(),
       updatedAt: moment.valueOf(),
       rtpUser: false,
+      acctOwner: '',
       d1name: '', d1: 0, d2name: '', d2: 0,
       u1name: '', u1: 0, u2name: '', u2: 0
     });
@@ -43,7 +44,7 @@ Meteor.methods({
        $set: {rtpUser}
      });
    },
-   'clients.update'(_id, peakLoad) {
+   'clients.update'(_id, peakLoad, acctOwner) {
      if(!this.userId) {
        throw new Meteor.Error('not-authorized');
      }
@@ -51,7 +52,7 @@ Meteor.methods({
          _id,
          userId: this.userId
        }, {
-         $set: {peakLoad}
+         $set: {peakLoad, acctOwner}
        });
      },
   'clients.addInvoice'(_id, d1name, d1, d2name, d2, u1name, u1, u2name, u2) {
@@ -62,9 +63,7 @@ Meteor.methods({
       _id,
       userId: this.userId
     }, {
-      $set: {
-        d1name, d1, d2name, d2, u1name, u1, u2name, u2
-      }
+      $set: {d1name, d1, d2name, d2, u1name, u1, u2name, u2}
     });
   }
 });

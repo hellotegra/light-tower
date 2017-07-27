@@ -51,7 +51,7 @@ export default class AddInvoice extends React.Component {
               </div>
               <div className="col-xs-2">Demand Charge 1 value</div>
               <div className="col-xs-2">
-                <input type="number" ref="d1" value="10" step="0.01"  />
+                <input type="number" ref="d1" defaultValue="10" step="0.01"  />
               </div>
             </div>
             </div>
@@ -63,7 +63,7 @@ export default class AddInvoice extends React.Component {
                 </div>
                 <div className="col-xs-2">Demand Charge 2 value</div>
                 <div className="col-xs-2">
-                  <input type="number" ref="d2" value="5" step="0.01" />
+                  <input type="number" ref="d2" defaultValue="5" step="0.01" />
                 </div>
               </div>
             </div>
@@ -75,7 +75,7 @@ export default class AddInvoice extends React.Component {
                 </div>
                 <div className="col-xs-2">Usage Charge 1 value</div>
                 <div className="col-xs-2">
-                  <input type="number" ref="u1" value="0.05" step="0.001" />
+                  <input type="number" ref="u1" defaultValue="0.05" step="0.001" />
                 </div>
               </div>
             </div>
@@ -87,7 +87,7 @@ export default class AddInvoice extends React.Component {
                 </div>
                 <div className="col-xs-2">Usage Charge 2 value</div>
                 <div className="col-xs-2">
-                  <input type="number" ref="u2" value="0.02" step="0.001" />
+                  <input type="number" ref="u2" defaultValue="0.02" step="0.001" />
                 </div>
               </div>
             </div>

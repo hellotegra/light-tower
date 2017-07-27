@@ -30,10 +30,11 @@ export default class ClientListItem extends React.Component {
      <tr>
        <td>{this.props.clientName}</td>
        <td>{this.props.peakLoad}</td>
+       <td>{this.props.acctOwner ? this.props.acctOwner : 'no owner'}</td>
        <td>{this.props.rtpUser.toString()}</td>
        <td>
          <Link to={this.props.url}><small>VIEW </small></Link>
-          ||
+          //
          <Link to={this.props.url}><small> EDIT</small></Link>
      </td>
        <td>

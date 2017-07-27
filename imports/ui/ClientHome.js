@@ -15,10 +15,11 @@ import {browserHistory, Link} from 'react-router';
    }
    componentDidMount() {
      console.log("Post-cDM: " + this.props.params);
-     console.log("Post-cDM: " + this.props.params.peakLoad);
+     console.log("Post-cDM: " + this.props.client.peakLoad);
      console.log("Post-cDM: " + this.props.params.clientId);
      const client = this.props.client;
      let peakLoad = this.props.client.peakLoad;
+     let acctOwner = this.props.client.acctOwner;
    }
    onChange(e) {
      this.setState({
@@ -28,12 +29,13 @@ import {browserHistory, Link} from 'react-router';
    onSubmit(e) {
      e.preventDefault();
      const peakLoad = this.refs.peakLoad.value.trim();
-     Meteor.call('clients.update', this.props.params.clientId, peakLoad);
+     const acctOwner = this.refs.acctOwner.value.trim();
+     Meteor.call('clients.update', this.props.params.clientId, peakLoad, acctOwner);
      browserHistory.push('/admin');
    }
   render() {
     let utility = 'ComEd';
-    let acctOwner = 'Kyle Barrough';
+    let acctOwner = 'Kyle Barrow';
     let address1 = '1922 Whitehall Rd';
     let address2 = '';
     let city = 'Wilmette';
@@ -171,7 +173,11 @@ import {browserHistory, Link} from 'react-router';
                 value={this.state.peakLoad}
                 onChange={this.onChange.bind(this)}
                />
-              <button>Update Client's Peak Load</button>
+               <input type="text" ref="acctOwner"
+                 value={this.state.acctOwner}
+                 onChange={this.onChange.bind(this)}
+                />
+              <button>Update Client Info</button>
             </form>
             <div className="row">
               <div className="container">
