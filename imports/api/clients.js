@@ -55,15 +55,20 @@ Meteor.methods({
          $set: {peakLoad, acctOwner}
        });
      },
-  'clients.addInvoice'(_id, d1name, d1, d2name, d2, u1name, u1, u2name, u2) {
+  // Add Invoice
+  'clients.addInvoice'(_id, d1, d2, u1, u2, d1name, d2name, u1name, u2name) {
+    console.log(_id);
+    console.log(d1, d2, u1, u2, d1name);
     if (!this.userId) {
       throw new Meteor.Error('not-authorized');
     }
-    Clients.update({
+    return Clients.update({
       _id,
-      userId: this.userId
+      // userId: this.userId
     }, {
-      $set: {d1name, d1, d2name, d2, u1name, u1, u2name, u2}
+      $set: {d1, d2, u1, u2, d1name, d1name, u1name, u2name}
+    }, (err) => {
+      console.log('Is there an error?', err);
     });
   }
 });
