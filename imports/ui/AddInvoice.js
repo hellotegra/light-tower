@@ -47,8 +47,8 @@ export default class AddInvoice extends React.Component {
     };
   }
   render() {
-    console.log("Params: ", this.props.params);
-    console.log("ClientId: ", this.props.params.clientId);
+    // console.log("Params: ", this.props.params);
+    // console.log("ClientId: ", this.props.params.clientId);
         return (
           <div>
             <AdminTitleBar />

@@ -16,47 +16,56 @@ import Dec from './bills/Dec';
 import Jun1 from './bills/Jun1';
 
 // from https://bootsnipp.com/snippets/OPvaM
-export default class Bill extends React.Component{
+export default class Bill extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       month: 'Jun'
     }
   }
-  onSelect(e) {
-    let month = 'Jun';
-    this.setState({month});
-    if (this.state.month = 'Jan') {
-      return <Jan />
-    } else if (this.state.month = 'Feb') {
-        return <Feb />
-    } else if (this.state.month = 'Mar') {
-        return <Mar />
-    } else if (this.state.month = 'Apr') {
-        return <Apr />
-    } else if (this.state.month = 'May') {
-        return <May />
-    } else if (this.state.month = 'Jun') {
-        return <Jun />
-    } else if (this.state.month = 'Jun1') {
-        return <Jun1 />
-    } else if (this.state.month = 'Jul') {
-        return <Jul />
-    } else if (this.state.month = 'Aug') {
-        return <Aug />
-    } else if (this.state.month = 'May') {
-        return <Sep />
-    } else if (this.state.month = 'Sep') {
-        return <Jun />
-    } else if (this.state.month = 'Oct') {
-        return <Oct />
-    } else if (this.state.month = 'Nov') {
-        return <Nov />
-    } else if (this.state.month = 'Dec') {
-        return <Dec />
+
+  changeMonth(month) {
+    console.log('on select month', month);
+    if (month) {
+      this.setState({month});
     }
   }
+
   render() {
+    let month = null;
+    if (this.state.month === 'Jan') {
+      month =  <Jan />;
+    } else if (this.state.month === 'Feb') {
+        month = <Feb />;
+    } else if (this.state.month === 'Mar') {
+        month = <Mar />;
+    } else if (this.state.month === 'Apr') {
+        month = <Apr />;
+    } else if (this.state.month === 'May') {
+        month = <May />;
+    } else if (this.state.month === 'Jun') {
+        month = <Jun />;
+    } else if (this.state.month === 'Jun1') {
+        month = <Jun1 />;
+    } else if (this.state.month === 'Jul') {
+        month = <Jul />;
+    } else if (this.state.month === 'Aug') {
+        month = <Aug />;
+    } else if (this.state.month === 'May') {
+        month = <Sep />;
+    } else if (this.state.month === 'Sep') {
+        month = <Jun />;
+    } else if (this.state.month === 'Oct') {
+        month = <Oct />;
+    } else if (this.state.month === 'Nov') {
+        month = <Nov />;
+    } else if (this.state.month === 'Dec') {
+        month = <Dec />;
+    }
+    console.log('month', month);
+
+
       return (
         <div>
           <TitleBar />
@@ -72,29 +81,28 @@ export default class Bill extends React.Component{
                   </div>
                 </div>
                 <div className="dropdown">
-                  <button className="btn btn-default dropdown-toggle"
-                    type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="true" ref="month"
-                    onChange={this.onSelect.bind(this)}>
-                    <span>{this.state.month}  </span>
-                    <span className="caret"></span>
-                  </button>
-                  <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li value="May">May 2017</li>
-                    <li value="Apr">April 2017</li>
-                    <li value="Mar">March 2017</li>
-                    <li value="Feb">Feb 2017</li>
-                    <li value="Jan">Jan 2017</li>
-                    <li value="Dec">Dec 2016</li>
-                    <li value="Nov">Nov 2016</li>
-                    <li value="Oct">Oct 2016</li>
-                    <li value="Sep">Sept 2016</li>
-                    <li value="Aug">Aug 2016</li>
-                    <li value="Jul">July 2016</li>
-                    <li value="Jun1">June 2016</li>
+                  <span className="btn btn-default dropdown-toggle"
+                    data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="true">
+                      <span> {this.state.month}  </span>
+                      <span className="caret"></span>
+                  </span>
+                  <ul className="dropdown-menu">
+                    <li onClick={this.changeMonth.bind(this, 'May')}>May 2017</li>
+                    <li onClick={this.changeMonth.bind(this, 'Apr')}>April 2017</li>
+                    <li onClick={this.changeMonth.bind(this, 'Mar')}>March 2017</li>
+                    <li onClick={this.changeMonth.bind(this, 'Feb')}>Feb 2017</li>
+                    <li onClick={this.changeMonth.bind(this, 'Jan')}>Jan 2017</li>
+                    <li onClick={this.changeMonth.bind(this, 'Dec')}>Dec 2016</li>
+                    <li onClick={this.changeMonth.bind(this, 'Nov')}>Nov 2016</li>
+                    <li onClick={this.changeMonth.bind(this, 'Oct')}>Oct 2016</li>
+                    <li onClick={this.changeMonth.bind(this, 'Sep')}>Sept 2016</li>
+                    <li onClick={this.changeMonth.bind(this, 'Aug')}>Aug 2016</li>
+                    <li onClick={this.changeMonth.bind(this, 'Jul')}>July 2016</li>
+                    <li onClick={this.changeMonth.bind(this, 'Jun1')}>June 2016</li>
                   </ul>
                 </div>
-                <Jun />
+                <div>{month}</div>
           </div>
         </div>
     </div>
