@@ -4,6 +4,11 @@ import TitleBar from './TitleBar';
 import SimpleLine from './charts/SimpleLine';
 
 export default class BillForm extends React.Component {
+
+  _onSubmit(e) {
+
+  }
+
   render() {
     return (
       <div>
@@ -20,7 +25,7 @@ export default class BillForm extends React.Component {
                     <h3 className="dashhead-title">Bill Input</h3>
                   </div>
                 </div>
-                <form>
+                <form onSubmit={this._onSubmit.bind(this)}>
                   <table className="table table-bordered table-hover table-condensed">
                     <thead>
                       <tr>

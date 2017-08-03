@@ -1,6 +1,7 @@
 import React from 'react';
 import Dashboard from './Dashboard';
 import TitleBar from './TitleBar';
+import {createContainer} from 'meteor/react-meteor-data';
 import Jan from './bills/Jan';
 import Feb from './bills/Feb';
 import Mar from './bills/Mar';
@@ -14,56 +15,66 @@ import Oct from './bills/Oct';
 import Nov from './bills/Nov';
 import Dec from './bills/Dec';
 import Jun1 from './bills/Jun1';
+import CurrentBill from './bills/CurrentBill';
+import {Invoices} from './../api/invoices';
+import _ from 'lodash';
+
+const monthMap = {
+  '1': 'Janaury',
+  '2': 'February',
+  '3': 'March',
+  '4': 'April',
+  '5': 'May',
+  '6': 'June',
+  '7': 'July',
+  '8': 'August',
+  '9': 'September',
+  '10': 'October',
+  '11': 'November',
+  '12': 'December'
+};
+
 
 // from https://bootsnipp.com/snippets/OPvaM
-export default class Bill extends React.Component {
+class Bill extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      month: 'Jun'
+      month: null,
+      year: null
     }
   }
 
-  changeMonth(month) {
-    console.log('on select month', month);
-    if (month) {
-      this.setState({month});
+  componentWillReceiveProps(nextProps) {
+    if (!_.isEqual(this.props.invoices, nextProps.invoices) & nextProps.invoices.length > 0) {
+      console.log('update');
+      let _invoices = _.orderBy(nextProps.invoices, ['year', 'month']);
+      this.setState({month: _invoices[0].month, year: _invoices[0].year});
     }
+  }
+
+  changeMonth(month, year) {
+    console.log('on select month', month, year);
+    this.setState({month, year});
   }
 
   render() {
-    let month = null;
-    if (this.state.month === 'Jan') {
-      month =  <Jan />;
-    } else if (this.state.month === 'Feb') {
-        month = <Feb />;
-    } else if (this.state.month === 'Mar') {
-        month = <Mar />;
-    } else if (this.state.month === 'Apr') {
-        month = <Apr />;
-    } else if (this.state.month === 'May') {
-        month = <May />;
-    } else if (this.state.month === 'Jun') {
-        month = <Jun />;
-    } else if (this.state.month === 'Jun1') {
-        month = <Jun1 />;
-    } else if (this.state.month === 'Jul') {
-        month = <Jul />;
-    } else if (this.state.month === 'Aug') {
-        month = <Aug />;
-    } else if (this.state.month === 'May') {
-        month = <Sep />;
-    } else if (this.state.month === 'Sep') {
-        month = <Jun />;
-    } else if (this.state.month === 'Oct') {
-        month = <Oct />;
-    } else if (this.state.month === 'Nov') {
-        month = <Nov />;
-    } else if (this.state.month === 'Dec') {
-        month = <Dec />;
+    console.log(this.props.invoices);
+    let _invoices = _.orderBy(this.props.invoices, ['year', 'month']);
+    console.log(_invoices);
+    let dropdownLinks = [];
+    for (let idx in _invoices) {
+      let invoice = _invoices[idx];
+      dropdownLinks.push(
+        <li key={_.uniqueId('month-year_')}
+          onClick={this.changeMonth.bind(this, invoice.month, invoice.year)}
+        >{monthMap[invoice.month]+'-'+invoice.year}</li>
+      );
     }
-    console.log('month', month);
+
+    let currentInvoice = _.find(this.props.invoices, {'month': this.state.month, 'year': this.state.year});
+    console.log('currentInvoice', currentInvoice);
 
 
       return (
@@ -84,25 +95,14 @@ export default class Bill extends React.Component {
                   <span className="btn btn-default dropdown-toggle"
                     data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="true">
-                      <span> {this.state.month}  </span>
+                      <span> {monthMap[this.state.month]+'-'+this.state.year}  </span>
                       <span className="caret"></span>
                   </span>
                   <ul className="dropdown-menu">
-                    <li onClick={this.changeMonth.bind(this, 'May')}>May 2017</li>
-                    <li onClick={this.changeMonth.bind(this, 'Apr')}>April 2017</li>
-                    <li onClick={this.changeMonth.bind(this, 'Mar')}>March 2017</li>
-                    <li onClick={this.changeMonth.bind(this, 'Feb')}>Feb 2017</li>
-                    <li onClick={this.changeMonth.bind(this, 'Jan')}>Jan 2017</li>
-                    <li onClick={this.changeMonth.bind(this, 'Dec')}>Dec 2016</li>
-                    <li onClick={this.changeMonth.bind(this, 'Nov')}>Nov 2016</li>
-                    <li onClick={this.changeMonth.bind(this, 'Oct')}>Oct 2016</li>
-                    <li onClick={this.changeMonth.bind(this, 'Sep')}>Sept 2016</li>
-                    <li onClick={this.changeMonth.bind(this, 'Aug')}>Aug 2016</li>
-                    <li onClick={this.changeMonth.bind(this, 'Jul')}>July 2016</li>
-                    <li onClick={this.changeMonth.bind(this, 'Jun1')}>June 2016</li>
+                    {dropdownLinks}
                   </ul>
                 </div>
-                <div>{month}</div>
+                {currentInvoice ? <CurrentBill invoice={currentInvoice}/> : ''}
           </div>
         </div>
     </div>
@@ -110,3 +110,9 @@ export default class Bill extends React.Component {
       );
   }
 };
+
+export default createContainer(() => {
+  Meteor.subscribe('clientInvoices');
+  // whatever we return from the function will show up as props
+  return { invoices: Invoices.find({clientName: 'test_client'}).fetch() };
+}, Bill);

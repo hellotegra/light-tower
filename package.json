@@ -14,6 +14,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^2.2.4",
     "keen-dashboards": "^0.1.1",
+    "lodash": "^4.17.4",
     "meteor-node-stubs": "~0.2.4",
     "mocha": "^3.4.2",
     "moment": "^2.18.1",

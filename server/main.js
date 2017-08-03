@@ -2,6 +2,7 @@
 // Why does Clients need the {}?
 import {Meteor} from 'meteor/meteor';
 import {Clients} from './../imports/api/clients';
+import {Invoices} from './../imports/api/invoices';
 
 Meteor.startup(() => {
   // Clients.insert({

@@ -55,7 +55,7 @@ export const routes = (
     <Route path="admin/addclient" component={AddClient} onEnter={onEnterPrivatePage}  />
     <Route path="admin/:clientId" component={ClientHome} onEnter={onEnterPrivatePage}  />
     <Route path="admin/:clientId/edit" component={ClientEditor} onEnter={onEnterPrivatePage}  />
-    <Route path="admin/:clientId/addinvoice" component={AddInvoice} onEnter={onEnterPrivatePage}  />
+    <Route path="admin/:clientId/addinvoice" component={AddInvoice} onEnter={onEnterPrivatePage}/>
     <Route path="admin" component={Client} onEnter={onEnterPrivatePage} />
     <Route path="admin/bill" component={BillForm} />
     <Route path="*" component={NotFound} />
