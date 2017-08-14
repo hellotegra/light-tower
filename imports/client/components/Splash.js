@@ -1,6 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
+import { Layout } from 'antd';
+const { Header, Footer, Sider, Content } = Layout;
 // import bkgrnd from '../img/bg.jpg';
 
 export default class Splash extends React.Component{
@@ -8,7 +10,7 @@ export default class Splash extends React.Component{
     var headerStyle = {color: '#006600'};
     var header2Style = {color: '#006600'};
       return (
-        <div>
+        <Content className="page page-splash">
           <a id="menu-toggle" href="#" className="btn btn-dark btn-lg toggle"><i className="fa fa-bars"></i></a>
            <nav id="sidebar-wrapper">
               <ul className="sidebar-nav">
@@ -47,7 +49,7 @@ export default class Splash extends React.Component{
                               <p></p>
                               <p></p>
                               <br/>
-                              <Link to="/dashboard" className="btn btn-dark btn-lg">View Demo</Link>
+                              <Link to="/login" className="btn btn-dark btn-lg">Login</Link>
                           </div>
                           <div className="col-xs-4"></div>
                     </div>
@@ -241,7 +243,7 @@ export default class Splash extends React.Component{
                       </div>
                       <a id="to-top" href="#top" className="btn btn-dark btn-lg"><i className="fa fa-chevron-up fa-fw fa-1x"></i></a>
                   </footer>
-                </div>
+                </Content>
       );
     }
   };

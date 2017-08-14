@@ -1,0 +1,20 @@
+.page-admin-clients {
+
+  .clients__table {
+    tbody tr {
+      background-color: #fff;
+    }
+  }
+
+  .clients__add {
+    margin-top: 20px;
+    text-align: center;
+
+    .ant-form {
+      margin-top: 20px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

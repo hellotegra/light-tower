@@ -1,45 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-}
+@import './base/var';
+@import './base/layout';
+@import './base/headings';
 
-html {
-  font-size: 62.5%;
-}
+@import './components/page';
+@import './components/header';
 
-body {
-  color: #555555;
-  font-family: 'Lato', sans-serif;
-}
-h1 {
-  font-weight: 300;
-  font-size: 2.4rem;
-}
-.title-bar {
-  background: #176449;
-  color: white;
-  height: 5.5rem;
-  a {
-    color: whitesmoke;
-  }
-}
-
-.title-bar a:hover {
-  color: white;
-  background: #176449;
-}
-
-.wrapper {
-  margin: 0 auto;
-  max-width: 50rem;
-  padding: 1.3rem;
-}
-
-.centered-graph {
-  text-align: center;
-}
-
-// #5FD7AE
-
-@import './components/title-bar';
-@import './components/wrapper';
+@import './pages/splash';
+@import './pages/login';
+@import './pages/admin-clients';

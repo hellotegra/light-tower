@@ -1,17 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Meteor} from 'meteor/meteor';
-import { routes, onAuthChange } from '../imports/routes/routes';
-import {Tracker} from 'meteor/tracker';
+import { render } from 'react-dom';
+import thunk from 'redux-thunk';
+import { Meteor } from 'meteor/meteor';
+import { Tracker } from 'meteor/tracker';
 
-Tracker.autorun(() => {
-  const isAuthenticated = !!Meteor.userId();
-  onAuthChange(isAuthenticated);
-});
+import 'antd/dist/antd.css';
+
+import { Main } from '../imports/client/main';
 
 
+let isRunned = false;
 
 Meteor.startup(() => {
-    ReactDOM.render(
-        routes, document.getElementById('app'));
+  Tracker.autorun((comp) => {
+    if (!isRunned && (Meteor.user() || Meteor.user() === null)) {
+      isRunned = true;
+      render(
+        <Main/>,
+        document.getElementById('app')
+      );
+    }
+  });
 });
