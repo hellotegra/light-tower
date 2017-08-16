@@ -16,9 +16,14 @@ import AdminInvoices from './containers/AdminInvoices';
 import ClientInvoices from './containers/ClientInvoices';
 import PageNotFound from './components/PageNotFound';
 
+import { LocaleProvider } from 'antd';
+import enUS from 'antd/lib/locale-provider/en_US';
+
 export const Main = () => (
   <Provider store={store}>
-    <WrappedAppRouter/>
+    <LocaleProvider locale={enUS}>
+      <WrappedAppRouter/>
+    </LocaleProvider>
   </Provider>
 );
 
@@ -45,9 +50,9 @@ class AppRouter extends React.Component {
     }
   }
 
-  _renderAdminInvoices() {
+  _renderAdminInvoices({match}) {
     if (this.props.user.id && this.props.user.isAdmin) {
-      return (<AdminInvoices />);
+      return (<AdminInvoices clientId={match.params.id}/>);
     } else if (this.props.user.id && !this.props.user.isAdmin) {
       return (<Redirect to="/client-invoices" />);
     } else if (this.props.user.id === ''){

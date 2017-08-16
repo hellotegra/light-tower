@@ -4,7 +4,11 @@
 
 @import './components/page';
 @import './components/header';
+@import './components/editable-invoice';
+@import './components/invoice';
 
 @import './pages/splash';
 @import './pages/login';
 @import './pages/admin-clients';
+@import './pages/admin-invoices';
+@import './pages/client-invoices';

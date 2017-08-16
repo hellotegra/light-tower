@@ -1,0 +1,22 @@
+.page-admin-invoices {
+
+  .invoices__head {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .invoices__body {
+
+  }
+
+  .invoices__empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .empty__text {
+      display: inline-block;
+      margin-right: 10px;
+    }
+  }
+}
