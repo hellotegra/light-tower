@@ -162,13 +162,25 @@
       display: table;
       position: relative;
       width: 100%;
-      height: 450px;
+      min-height: 450px;
       background: url(https://static.pexels.com/photos/371900/pexels-photo-371900.jpeg) no-repeat top center scroll;
   // https://www.planwallpaper.com/static/images/free-desktop-wallpaper-14.jpg
       -webkit-background-size: cover;
       -moz-background-size: cover;
       background-size: cover;
       -o-background-size: cover;
+
+      h1 {
+        margin-top: 20px;
+      }
+  }
+
+  .logo {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* About */

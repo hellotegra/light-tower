@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 // import bkgrnd from '../img/bg.jpg';
@@ -42,7 +42,7 @@ export default class Splash extends React.Component{
                           <div className="col-xs-4"></div>
                           <div className="text-vertical-center col-xs-4">
                               <p></p>
-                              <img src="/logo.png" alt="LTP" />
+                              <img className="logo" src="images/logo.png" alt="LTP" />
                               <h1 style={headerStyle}>Light Tower</h1>
                               <h3 style={header2Style}>Real-Time Pricing, Real Simple</h3>
                               <p></p>
