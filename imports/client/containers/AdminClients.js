@@ -95,7 +95,7 @@ class AdminClients extends React.Component {
       for (let item of clientsList) {
         clientsData.push({
           key: item.id,
-          email: <Link to={'/admin-clients/'+item.id}>{item.email}</Link>,
+          email: <Link to={'/admin/'+item.id}>{item.email}</Link>,
           password: item.password,
         });
       }
